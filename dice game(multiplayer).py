@@ -3,8 +3,8 @@ import random
 player1_money=1000
 player2_money=1000
 
-Player1= str(input('Player 1 Please enter your name'))
-Player2= str(input('Player 2 Please enter your name'))
+Player1= str(input('Player 1 Please enter your name '))
+Player2= str(input('Player 2 Please enter your name '))
 def game():
     global player1_money, player2_money, Player1,Player2
     for i in range(5):
