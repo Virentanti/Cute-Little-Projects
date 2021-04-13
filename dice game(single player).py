@@ -1,6 +1,22 @@
 import random
 
 player_money=1000
+
+def won():
+    print('Congratulations! You won')
+    player_money+=bet
+    print(f'Your money is {player_money}')
+    ans=str(input('press Y to play again or Press N to exit'))
+    if ans.upper()=='Y':
+        game()
+        
+def lost():
+    print('Sorry! You lost')
+    player_money-=bet
+    print(f'Your money is {player_money}')
+    ans=str(input('press Y to play again or Press N to exit'))
+    if ans.upper()=='Y':
+        game()
 def game():
     global player_money
     guess=int(input('Enter your guess:'))
@@ -10,19 +26,9 @@ def game():
             if bet<=player_money:
                 dice=random.randrange(1,6)
                 if guess==dice:
-                    print('Congratulations! You won')
-                    player_money+=bet
-                    print(f'Your money is {player_money}')
-                    ans=str(input('press Y to play again or Press N to exit'))
-                    if ans.upper()=='Y':
-                        game()
+                    won()
                 else:
-                    print('Sorry! You lost')
-                    player_money-=bet
-                    print(f'Your money is {player_money}')
-                    ans=str(input('press Y to play again or Press N to exit'))
-                    if ans.upper()=='Y':
-                        game()
+                    lost()
             else:
                 print('you dont have that kinda money \n Try again!')
                 game()
